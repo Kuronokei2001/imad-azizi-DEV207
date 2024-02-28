@@ -1,14 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import Header from './reg/header';
+import { legacy_createStore } from 'redux';
+import {Livres} from './reg/store/AppReducer'
+import { Provider } from 'react-redux';
+const Store =legacy_createStore(Livres);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={Store}>
+ <Header/>
+
+  </Provider>
+
+
+
+ 
+    
 );
 
 // If you want to start measuring performance in your app, pass a function
